@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
     <Name>traefik</Name>
-    <epository>traefik:latest</Repository>
+    <Repository>traefik:latest</Repository>
     <Shell>bash</Shell>
     <Privileged>false</Privileged>
     <Networking>
