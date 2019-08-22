@@ -59,3 +59,60 @@ Access the container and walk through the initial setup wizard of adding the use
   <Config Name="Host Port 2" Target="443" Default="6443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">6443</Config>
   <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/unms" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/unms</Config>
 </Container>
+
+
+#######
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>HomeAutomation: Network:Management</Category>
+  <Name>UniFi</Name>
+  <Description>UniFi Controller software - Dockerize version of the popular UniFi Controller to control Wi-Fi Access Point from the company Ubiquiti Networks.</Description>
+  <Registry>https://registry.hub.docker.com/u/pducharme/unifi/</Registry>
+  <Repository>pducharme/unifi</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>true</Privileged>
+  <Environment/>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8081</HostPort>
+        <ContainerPort>8081</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8443</HostPort>
+        <ContainerPort>8443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8843</HostPort>
+        <ContainerPort>8843</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8880</HostPort>
+        <ContainerPort>8880</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/unifi/</HostDir>
+      <ContainerDir>/var/lib/unifi</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version></Version>
+  <WebUI>https://[IP]:[PORT:8443]/manage</WebUI>
+  <Banner>http://i.imgur.com/dD9ub3n.png</Banner>
+  <Icon>http://i.imgur.com/dD9ub3n.png</Icon>
+</Container>
+
